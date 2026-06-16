@@ -1,127 +1,139 @@
-Build a mobile-friendly Funmigo mini game screen called:
+Create a complete FUNMIGO game called:
 
-"הפסל המתוסכל"
-"The Frustrated Sculptor"
+🎭 הפסל המתוסכל
+(The Frustrated Sculptor)
 
-Game goal:
-Each team plays one turn.
-One player is "the sculptor".
-The sculptor gets a secret situation and must silently shape the other team members into a living human statue that represents the situation.
-The sculptor is not allowed to speak.
-When one of the team members correctly guesses the situation, the team stops the timer.
-The team with the shortest time wins.
+Game flow:
 
-Flow:
+When the game starts, show a Funmigo styled intro screen with Poppy mascot and a button:
 
-1. Start screen:
-Show title:
-הפסל המתוסכל
-The Frustrated Sculptor
+"התחל משחק"
 
-Show short rules:
-נציג אחד הוא הפסל.
-הפסל מקבל סיטואציה סודית.
-עליו לעצב את חברי הקבוצה לפסל אנושי חי.
-אסור לדבר.
-כשאחד מחברי הקבוצה מזהה את הסיטואציה - עוצרים את הסטופר.
-הקבוצה המהירה ביותר מנצחת.
+After clicking start:
+
+Randomly select ONE situation from the situations database.
+
+Display the situation in large text on the screen.
+
+Show a large countdown button:
+
+▶️ התחל סטופר
+
+When clicked:
+
+Start a timer counting UP from 00:00.
+
+The sculptor reads the situation.
+
+The sculptor must silently shape the other players into a living human statue representing the situation.
+
+No speaking allowed.
+
+When one of the players correctly guesses the situation:
+
+Press:
+
+⏹️ עצור סטופר
+
+Save the time automatically.
+
+Display:
+
+🏆 הזמן שלכם:
+XX שניות
 
 Button:
-התחל משחק
 
-2. Team 1 situation screen:
-Choose a random situation from the situations array.
+➡️ קבוצה הבאה
+
+When pressed:
+
+Generate a NEW random situation.
+
+Repeat the same process for Team 2.
+
+When Team 2 finishes:
+
+Display results screen.
+
 Show:
-קבוצה 1
-הסיטואציה שלכם:
-[Random situation]
 
-Button:
-התחל סטופר
+🏆 תוצאות
 
-3. Team 1 timer screen:
-Show a large timer starting from 00:00.
-Button:
-עצור סטופר
+קבוצה 1:
+XX שניות
 
-When clicked, save the time as team1Time.
+קבוצה 2:
+YY שניות
 
-4. Transition screen:
-Show:
-קבוצה 1 סיימה
-הזמן שלכם:
-[team1Time]
+Winner logic:
 
-Button:
-המשך לקבוצה 2
+Lowest time wins.
 
-5. Team 2 situation screen:
-Choose a different random situation from the array.
-Show:
-קבוצה 2
-הסיטואציה שלכם:
-[Random situation]
+If equal:
+Display:
+🤝 תיקו
 
-Button:
-התחל סטופר
+Situations database:
 
-6. Team 2 timer screen:
-Show a large timer starting from 00:00.
-Button:
-עצור סטופר
+⚽ Sports
+- חגיגת שער בדקה ה-90
+- זכייה בגביע אליפות
+- זינוק למרוץ 100 מטר
+- פסק זמן בכדורסל
+- טקס מדליית זהב אולימפית
 
-When clicked, save the time as team2Time.
+😂 Funny
+- כולם בורחים מדבורה
+- רכבת הרים מטורפת
+- מלחמת כריות
+- חיפוש עכביש בחדר
+- צילום משפחתי שהשתבש
 
-7. Results screen:
-Show:
-תוצאות
+🏴 Adventure
+- פיראטים מחפשים אוצר
+- גיבורי על לפני קרב
+- משימה בחלל
+- צוות שוד בנק
+- חוקרים במקדש עתיק
 
-קבוצה 1: [team1Time]
-קבוצה 2: [team2Time]
+🏡 Everyday Life
+- יום הולדת בהפתעה
+- על האש משפחתי
+- טיסה עם כיסי אוויר
+- תור ארוך בסופר
+- משפחה בלונה פארק
 
-If team1Time is lower:
-המנצחת: קבוצה 1
+UI Requirements:
 
-If team2Time is lower:
-המנצחת: קבוצה 2
+Use the official FUNMIGO style.
 
-If times are equal:
-תיקו
-
-Situations array:
-[
-"חגיגת שער בדקה ה-90",
-"זכייה בגביע אליפות",
-"זינוק למרוץ 100 מטר",
-"פסק זמן בכדורסל",
-"טקס מדליית זהב אולימפית",
-"כולם בורחים מדבורה",
-"רכבת הרים מטורפת",
-"מלחמת כריות",
-"חיפוש עכביש בחדר",
-"צילום משפחתי שהשתבש",
-"פיראטים מחפשים אוצר",
-"גיבורי על לפני קרב",
-"משימה בחלל",
-"צוות שוד בנק",
-"חוקרים במקדש עתיק",
-"יום הולדת בהפתעה",
-"על האש משפחתי",
-"טיסה עם כיסי אוויר",
-"תור ארוך בסופר",
-"משפחה בלונה פארק"
-]
-
-Design:
-Use Funmigo playful comic style.
 Colors:
-Blue #2563EB
-Yellow #FACC15
-Black #000000
-White #FFFFFF
+Blue
+Yellow
+Black
+White
 
-Use big rounded buttons.
-Use large readable timer.
-Use RTL Hebrew layout.
-Add a Poppy mascot placeholder image area on the start screen, situation screen, and results screen.
-Make it fully mobile responsive.
+Add Poppy mascot.
+
+Large buttons.
+
+Large timer.
+
+RTL Hebrew layout.
+
+Mobile first.
+
+Comic playful design.
+
+Add fun animations when:
+- Starting timer
+- Stopping timer
+- Showing winner
+
+At the end show:
+
+🏆 המנצחת:
+[Team Name]
+
+LET'S FUNMIGO!
