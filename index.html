@@ -1,139 +1,44 @@
-Create a complete FUNMIGO game called:
+Implement this as a working game component in the existing Funmigo app.
 
-🎭 הפסל המתוסכל
-(The Frustrated Sculptor)
+Create the full code for the game "הפסל המתוסכל".
+Use the same structure, routing, styling, buttons, timer logic, and state management as the other existing Funmigo games in this project.
 
-Game flow:
+Do not only describe the game.
+Write the actual working code.
 
-When the game starts, show a Funmigo styled intro screen with Poppy mascot and a button:
+Requirements:
+- Add a start screen.
+- Add random situation selection.
+- Add timer that counts up from 00:00.
+- Add stop timer button.
+- Save Team 1 time.
+- Continue to Team 2.
+- Pick a different random situation for Team 2.
+- Save Team 2 time.
+- Show final results.
+- The team with the lower time wins.
+- Use RTL Hebrew.
+- Mobile friendly.
+- Use Funmigo colors and style.
 
-"התחל משחק"
-
-After clicking start:
-
-Randomly select ONE situation from the situations database.
-
-Display the situation in large text on the screen.
-
-Show a large countdown button:
-
-▶️ התחל סטופר
-
-When clicked:
-
-Start a timer counting UP from 00:00.
-
-The sculptor reads the situation.
-
-The sculptor must silently shape the other players into a living human statue representing the situation.
-
-No speaking allowed.
-
-When one of the players correctly guesses the situation:
-
-Press:
-
-⏹️ עצור סטופר
-
-Save the time automatically.
-
-Display:
-
-🏆 הזמן שלכם:
-XX שניות
-
-Button:
-
-➡️ קבוצה הבאה
-
-When pressed:
-
-Generate a NEW random situation.
-
-Repeat the same process for Team 2.
-
-When Team 2 finishes:
-
-Display results screen.
-
-Show:
-
-🏆 תוצאות
-
-קבוצה 1:
-XX שניות
-
-קבוצה 2:
-YY שניות
-
-Winner logic:
-
-Lowest time wins.
-
-If equal:
-Display:
-🤝 תיקו
-
-Situations database:
-
-⚽ Sports
-- חגיגת שער בדקה ה-90
-- זכייה בגביע אליפות
-- זינוק למרוץ 100 מטר
-- פסק זמן בכדורסל
-- טקס מדליית זהב אולימפית
-
-😂 Funny
-- כולם בורחים מדבורה
-- רכבת הרים מטורפת
-- מלחמת כריות
-- חיפוש עכביש בחדר
-- צילום משפחתי שהשתבש
-
-🏴 Adventure
-- פיראטים מחפשים אוצר
-- גיבורי על לפני קרב
-- משימה בחלל
-- צוות שוד בנק
-- חוקרים במקדש עתיק
-
-🏡 Everyday Life
-- יום הולדת בהפתעה
-- על האש משפחתי
-- טיסה עם כיסי אוויר
-- תור ארוך בסופר
-- משפחה בלונה פארק
-
-UI Requirements:
-
-Use the official FUNMIGO style.
-
-Colors:
-Blue
-Yellow
-Black
-White
-
-Add Poppy mascot.
-
-Large buttons.
-
-Large timer.
-
-RTL Hebrew layout.
-
-Mobile first.
-
-Comic playful design.
-
-Add fun animations when:
-- Starting timer
-- Stopping timer
-- Showing winner
-
-At the end show:
-
-🏆 המנצחת:
-[Team Name]
-
-LET'S FUNMIGO!
+Situations:
+"חגיגת שער בדקה ה-90",
+"זכייה בגביע אליפות",
+"זינוק למרוץ 100 מטר",
+"פסק זמן בכדורסל",
+"טקס מדליית זהב אולימפית",
+"כולם בורחים מדבורה",
+"רכבת הרים מטורפת",
+"מלחמת כריות",
+"חיפוש עכביש בחדר",
+"צילום משפחתי שהשתבש",
+"פיראטים מחפשים אוצר",
+"גיבורי על לפני קרב",
+"משימה בחלל",
+"צוות שוד בנק",
+"חוקרים במקדש עתיק",
+"יום הולדת בהפתעה",
+"על האש משפחתי",
+"טיסה עם כיסי אוויר",
+"תור ארוך בסופר",
+"משפחה בלונה פארק"
