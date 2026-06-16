@@ -1,122 +1,113 @@
-Create a fully working game in the existing Funmigo app.
+Create a complete mobile-friendly web game called "הפסל המתוסכל" (The Frustrated Sculptor).
 
-Game name:
-הפסל המתוסכל
-The Frustrated Sculptor
+The game must be entirely in Hebrew (RTL layout) and inspired by the Funmigo party game.
 
-Important:
-Do not describe the game.
-Do not create only text instructions.
-Implement the actual working game from start to finish using the existing app structure, design system, routing, styling and state management.
+GAME FLOW:
 
-Game flow:
+1. There are 2 teams: Team 1 and Team 2.
+2. One player is the "Sculptor".
+3. The sculptor receives a secret situation.
+4. The sculptor must arrange the other team members into a human statue that represents the situation.
+5. Talking is not allowed.
+6. The host clicks "התחל טיימר" when the sculptor starts.
+7. The timer runs until someone in the team correctly guesses the situation.
+8. The host clicks "ניחשו נכון" to stop the timer.
+9. Save the time for Team 1.
+10. Display a new random situation for Team 2.
+11. Repeat the process.
+12. Save Team 2's time.
+13. At the end, display both times side by side.
+14. Highlight the winning team with the fastest time.
+15. Show a celebration message for the winner.
+16. Add a "משחק חדש" button to reset everything.
 
-1. Show intro screen:
-Title: הפסל המתוסכל
-Subtitle: The Frustrated Sculptor
-Text:
-נציג אחד הוא הפסל.
-הפסל מקבל סיטואציה סודית.
-עליו לעצב את חברי הקבוצה לפסל אנושי חי.
-אסור לדבר.
-כשאחד מחברי הקבוצה מזהה את הסיטואציה - עוצרים את הסטופר.
-הקבוצה המהירה ביותר מנצחת.
+REQUIREMENTS:
 
-Button:
-התחל משחק
+- Use HTML, CSS and JavaScript only.
+- Everything must be contained in a single HTML file.
+- Fully responsive for phones, tablets and desktops.
+- Use Funmigo colors:
+  - Yellow (#FFD400)
+  - Black (#000000)
+  - White (#FFFFFF)
+  - Blue (#1E88E5)
+- Modern, playful and professional design.
+- Large buttons suitable for game hosts.
+- Large timer display.
+- RTL support.
+- Do not repeat situations during the same game.
+- Include smooth animations and visual effects.
 
-2. When clicking “התחל משחק”:
-Start Team 1 turn.
-Randomly select one situation from the situations list.
-Show:
-קבוצה 1
-הסיטואציה שלכם:
-[chosen situation]
+HEBREW BUTTONS:
 
-Button:
-התחל סטופר
+- חשוף סיטואציה
+- התחל טיימר
+- ניחשו נכון
+- קבוצה 1
+- קבוצה 2
+- משחק חדש
 
-3. When clicking “התחל סטופר”:
-Start a timer counting up from 00:00.
-Show large timer.
-Show button:
-עצור סטופר
+SITUATIONS ARRAY (at least 50 situations):
 
-4. When clicking “עצור סטופר”:
-Stop the timer.
-Save Team 1 time.
-Show:
-קבוצה 1 סיימה
-הזמן שלכם:
-[time]
+- חגיגת שער בדקה ה-90
+- צילום משפחתי שהשתבש
+- רכבת הרים מפחידה
+- חיפוש עכביש בחדר
+- מסיבת הפתעה
+- בריחה מדבורה
+- פקק תנועה
+- חתונה
+- הצעת נישואין
+- זכייה במדליית זהב אולימפית
+- פיראטים שמצאו אוצר
+- טיסה עם כיסי אוויר
+- קמפינג בגשם
+- ילד שמסרב ללכת לישון
+- משחק מחבואים
+- ביקור בגן חיות
+- משחק כדורסל
+- משחק כדורגל
+- משפחה בפארק שעשועים
+- נסיעה באוטובוס צפוף
+- גלישה בים
+- החלקה על הקרח
+- חיפוש מפתחות אבודים
+- מופע קסמים
+- סיום מרתון
+- שוד בנק
+- מסיבת יום הולדת
+- דייג בים
+- מטיילים שאבדו ביער
+- כיתה בזמן מבחן
+- קרב כריות
+- חיילים במסדר
+- משלחת לחלל
+- טיפוס על הר
+- סירה בסערה
+- ארוחה משפחתית
+- מופע רוק
+- פתיחת מתנה ענקית
+- תור ארוך בסופר
+- גיבורי על מצילים את העיר
+- בניית ארמון חול
+- חקירת פירמידה עתיקה
+- תינוק עושה צעדים ראשונים
+- משחק משיכת חבל
+- קבוצת מעודדות
+- מכוניות מתנגשות בלונה פארק
+- סלפי קבוצתי
+- חיפוש אוצר
+- חציית נהר
+- חקירה משטרתית
+- הופעה על במה
+- תחרות ריקודים
+- מטוס ממריא
+- שחקנים בחדר הלבשה
+- טיול ג'יפים במדבר
+- מסע הישרדות בג'ונגל
+- הצלה מהים
+- יום ראשון בבית הספר
+- קבלת תעודת הצטיינות
+- חיפוש אחר חניה בקניון
 
-Button:
-המשך לקבוצה 2
-
-5. When clicking “המשך לקבוצה 2”:
-Start Team 2 turn.
-Randomly select a different situation from the situations list.
-Show:
-קבוצה 2
-הסיטואציה שלכם:
-[chosen situation]
-
-Button:
-התחל סטופר
-
-6. Repeat timer flow for Team 2.
-
-7. When Team 2 clicks “עצור סטופר”:
-Stop the timer.
-Save Team 2 time.
-Show results screen:
-תוצאות
-קבוצה 1: [time]
-קבוצה 2: [time]
-
-Winner logic:
-If Team 1 time is lower, show:
-המנצחת: קבוצה 1
-
-If Team 2 time is lower, show:
-המנצחת: קבוצה 2
-
-If times are equal, show:
-תיקו
-
-Also show:
-LET'S FUNMIGO!
-
-Situations list:
-[
-"חגיגת שער בדקה ה-90",
-"זכייה בגביע אליפות",
-"זינוק למרוץ 100 מטר",
-"פסק זמן בכדורסל",
-"טקס מדליית זהב אולימפית",
-"כולם בורחים מדבורה",
-"רכבת הרים מטורפת",
-"מלחמת כריות",
-"חיפוש עכביש בחדר",
-"צילום משפחתי שהשתבש",
-"פיראטים מחפשים אוצר",
-"גיבורי על לפני קרב",
-"משימה בחלל",
-"צוות שוד בנק",
-"חוקרים במקדש עתיק",
-"יום הולדת בהפתעה",
-"על האש משפחתי",
-"טיסה עם כיסי אוויר",
-"תור ארוך בסופר",
-"משפחה בלונה פארק"
-]
-
-Design requirements:
-RTL Hebrew layout.
-Mobile-first responsive design.
-Use Funmigo playful comic style.
-Use blue, yellow, black and white.
-Use large readable buttons.
-Use a very large timer.
-Add Poppy mascot placeholder area.
-Add simple animations for start, stop and winner screen.
+Make the final result look like a polished commercial party game, not a simple school project.
