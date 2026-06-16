@@ -1,27 +1,94 @@
-Implement this as a working game component in the existing Funmigo app.
+Create a fully working game in the existing Funmigo app.
 
-Create the full code for the game "הפסל המתוסכל".
-Use the same structure, routing, styling, buttons, timer logic, and state management as the other existing Funmigo games in this project.
+Game name:
+הפסל המתוסכל
+The Frustrated Sculptor
 
-Do not only describe the game.
-Write the actual working code.
+Important:
+Do not describe the game.
+Do not create only text instructions.
+Implement the actual working game from start to finish using the existing app structure, design system, routing, styling and state management.
 
-Requirements:
-- Add a start screen.
-- Add random situation selection.
-- Add timer that counts up from 00:00.
-- Add stop timer button.
-- Save Team 1 time.
-- Continue to Team 2.
-- Pick a different random situation for Team 2.
-- Save Team 2 time.
-- Show final results.
-- The team with the lower time wins.
-- Use RTL Hebrew.
-- Mobile friendly.
-- Use Funmigo colors and style.
+Game flow:
 
-Situations:
+1. Show intro screen:
+Title: הפסל המתוסכל
+Subtitle: The Frustrated Sculptor
+Text:
+נציג אחד הוא הפסל.
+הפסל מקבל סיטואציה סודית.
+עליו לעצב את חברי הקבוצה לפסל אנושי חי.
+אסור לדבר.
+כשאחד מחברי הקבוצה מזהה את הסיטואציה - עוצרים את הסטופר.
+הקבוצה המהירה ביותר מנצחת.
+
+Button:
+התחל משחק
+
+2. When clicking “התחל משחק”:
+Start Team 1 turn.
+Randomly select one situation from the situations list.
+Show:
+קבוצה 1
+הסיטואציה שלכם:
+[chosen situation]
+
+Button:
+התחל סטופר
+
+3. When clicking “התחל סטופר”:
+Start a timer counting up from 00:00.
+Show large timer.
+Show button:
+עצור סטופר
+
+4. When clicking “עצור סטופר”:
+Stop the timer.
+Save Team 1 time.
+Show:
+קבוצה 1 סיימה
+הזמן שלכם:
+[time]
+
+Button:
+המשך לקבוצה 2
+
+5. When clicking “המשך לקבוצה 2”:
+Start Team 2 turn.
+Randomly select a different situation from the situations list.
+Show:
+קבוצה 2
+הסיטואציה שלכם:
+[chosen situation]
+
+Button:
+התחל סטופר
+
+6. Repeat timer flow for Team 2.
+
+7. When Team 2 clicks “עצור סטופר”:
+Stop the timer.
+Save Team 2 time.
+Show results screen:
+תוצאות
+קבוצה 1: [time]
+קבוצה 2: [time]
+
+Winner logic:
+If Team 1 time is lower, show:
+המנצחת: קבוצה 1
+
+If Team 2 time is lower, show:
+המנצחת: קבוצה 2
+
+If times are equal, show:
+תיקו
+
+Also show:
+LET'S FUNMIGO!
+
+Situations list:
+[
 "חגיגת שער בדקה ה-90",
 "זכייה בגביע אליפות",
 "זינוק למרוץ 100 מטר",
@@ -42,3 +109,14 @@ Situations:
 "טיסה עם כיסי אוויר",
 "תור ארוך בסופר",
 "משפחה בלונה פארק"
+]
+
+Design requirements:
+RTL Hebrew layout.
+Mobile-first responsive design.
+Use Funmigo playful comic style.
+Use blue, yellow, black and white.
+Use large readable buttons.
+Use a very large timer.
+Add Poppy mascot placeholder area.
+Add simple animations for start, stop and winner screen.
