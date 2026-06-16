@@ -1,113 +1,305 @@
-Create a complete mobile-friendly web game called "הפסל המתוסכל" (The Frustrated Sculptor).
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הפסל המתוסכל</title>
 
-The game must be entirely in Hebrew (RTL layout) and inspired by the Funmigo party game.
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#FFD400;
+text-align:center;
+padding:20px;
+}
 
-GAME FLOW:
+.container{
+max-width:900px;
+margin:auto;
+}
 
-1. There are 2 teams: Team 1 and Team 2.
-2. One player is the "Sculptor".
-3. The sculptor receives a secret situation.
-4. The sculptor must arrange the other team members into a human statue that represents the situation.
-5. Talking is not allowed.
-6. The host clicks "התחל טיימר" when the sculptor starts.
-7. The timer runs until someone in the team correctly guesses the situation.
-8. The host clicks "ניחשו נכון" to stop the timer.
-9. Save the time for Team 1.
-10. Display a new random situation for Team 2.
-11. Repeat the process.
-12. Save Team 2's time.
-13. At the end, display both times side by side.
-14. Highlight the winning team with the fastest time.
-15. Show a celebration message for the winner.
-16. Add a "משחק חדש" button to reset everything.
+h1{
+background:#000;
+color:#fff;
+padding:15px;
+border-radius:15px;
+}
 
-REQUIREMENTS:
+.card{
+background:#fff;
+padding:20px;
+margin-top:20px;
+border-radius:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
 
-- Use HTML, CSS and JavaScript only.
-- Everything must be contained in a single HTML file.
-- Fully responsive for phones, tablets and desktops.
-- Use Funmigo colors:
-  - Yellow (#FFD400)
-  - Black (#000000)
-  - White (#FFFFFF)
-  - Blue (#1E88E5)
-- Modern, playful and professional design.
-- Large buttons suitable for game hosts.
-- Large timer display.
-- RTL support.
-- Do not repeat situations during the same game.
-- Include smooth animations and visual effects.
+button{
+background:#1E88E5;
+color:white;
+border:none;
+padding:15px 25px;
+margin:5px;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
+}
 
-HEBREW BUTTONS:
+button:hover{
+opacity:.9;
+}
 
-- חשוף סיטואציה
-- התחל טיימר
-- ניחשו נכון
-- קבוצה 1
-- קבוצה 2
-- משחק חדש
+#situation{
+font-size:30px;
+font-weight:bold;
+min-height:80px;
+margin:20px 0;
+}
 
-SITUATIONS ARRAY (at least 50 situations):
+#timer{
+font-size:60px;
+font-weight:bold;
+margin:20px;
+}
 
-- חגיגת שער בדקה ה-90
-- צילום משפחתי שהשתבש
-- רכבת הרים מפחידה
-- חיפוש עכביש בחדר
-- מסיבת הפתעה
-- בריחה מדבורה
-- פקק תנועה
-- חתונה
-- הצעת נישואין
-- זכייה במדליית זהב אולימפית
-- פיראטים שמצאו אוצר
-- טיסה עם כיסי אוויר
-- קמפינג בגשם
-- ילד שמסרב ללכת לישון
-- משחק מחבואים
-- ביקור בגן חיות
-- משחק כדורסל
-- משחק כדורגל
-- משפחה בפארק שעשועים
-- נסיעה באוטובוס צפוף
-- גלישה בים
-- החלקה על הקרח
-- חיפוש מפתחות אבודים
-- מופע קסמים
-- סיום מרתון
-- שוד בנק
-- מסיבת יום הולדת
-- דייג בים
-- מטיילים שאבדו ביער
-- כיתה בזמן מבחן
-- קרב כריות
-- חיילים במסדר
-- משלחת לחלל
-- טיפוס על הר
-- סירה בסערה
-- ארוחה משפחתית
-- מופע רוק
-- פתיחת מתנה ענקית
-- תור ארוך בסופר
-- גיבורי על מצילים את העיר
-- בניית ארמון חול
-- חקירת פירמידה עתיקה
-- תינוק עושה צעדים ראשונים
-- משחק משיכת חבל
-- קבוצת מעודדות
-- מכוניות מתנגשות בלונה פארק
-- סלפי קבוצתי
-- חיפוש אוצר
-- חציית נהר
-- חקירה משטרתית
-- הופעה על במה
-- תחרות ריקודים
-- מטוס ממריא
-- שחקנים בחדר הלבשה
-- טיול ג'יפים במדבר
-- מסע הישרדות בג'ונגל
-- הצלה מהים
-- יום ראשון בבית הספר
-- קבלת תעודת הצטיינות
-- חיפוש אחר חניה בקניון
+.results{
+display:none;
+margin-top:20px;
+}
 
-Make the final result look like a polished commercial party game, not a simple school project.
+.winner{
+background:#C8E6C9;
+border:4px solid green;
+}
+
+.teamBox{
+background:white;
+padding:15px;
+margin:10px;
+border-radius:15px;
+}
+
+.hidden{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎭 הפסל המתוסכל</h1>
+
+<div class="card">
+
+<h2 id="teamTitle">קבוצה 1</h2>
+
+<div id="situation">
+לחצו על "חשוף סיטואציה"
+</div>
+
+<button onclick="revealSituation()">חשוף סיטואציה</button>
+<button onclick="startTimer()">התחל טיימר</button>
+<button onclick="stopTimer()">ניחשו נכון</button>
+
+<div id="timer">00.00</div>
+
+</div>
+
+<div class="card results" id="results">
+
+<h2>🏆 תוצאות</h2>
+
+<div id="team1Box" class="teamBox">
+קבוצה 1: <span id="team1Time"></span>
+</div>
+
+<div id="team2Box" class="teamBox">
+קבוצה 2: <span id="team2Time"></span>
+</div>
+
+<h2 id="winnerText"></h2>
+
+<button onclick="location.reload()">
+משחק חדש
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const situations = [
+
+"חגיגת שער בדקה ה-90",
+"צילום משפחתי שהשתבש",
+"רכבת הרים מפחידה",
+"חיפוש עכביש בחדר",
+"מסיבת הפתעה",
+"בריחה מדבורה",
+"פקק תנועה",
+"חתונה",
+"הצעת נישואין",
+"זכייה במדליית זהב",
+"פיראטים שמצאו אוצר",
+"טיסה עם כיסי אוויר",
+"קמפינג בגשם",
+"ילד שמסרב ללכת לישון",
+"משחק מחבואים",
+"ביקור בגן חיות",
+"משחק כדורסל",
+"משחק כדורגל",
+"משפחה בפארק שעשועים",
+"נסיעה באוטובוס צפוף",
+"גלישה בים",
+"החלקה על הקרח",
+"חיפוש מפתחות אבודים",
+"מופע קסמים",
+"סיום מרתון",
+"שוד בנק",
+"מסיבת יום הולדת",
+"דייג בים",
+"מטיילים שאבדו ביער",
+"כיתה בזמן מבחן",
+"קרב כריות",
+"חיילים במסדר",
+"משלחת לחלל",
+"טיפוס על הר",
+"סירה בסערה",
+"ארוחה משפחתית",
+"מופע רוק",
+"פתיחת מתנה ענקית",
+"תור ארוך בסופר",
+"גיבורי על מצילים את העיר",
+"בניית ארמון חול",
+"חקירת פירמידה עתיקה",
+"תינוק עושה צעדים ראשונים",
+"משחק משיכת חבל",
+"קבוצת מעודדות",
+"מכוניות מתנגשות בלונה פארק",
+"סלפי קבוצתי",
+"חיפוש אוצר",
+"חציית נהר",
+"חקירה משטרתית"
+];
+
+let used = [];
+let currentTeam = 1;
+let team1Time = null;
+let team2Time = null;
+
+let timerInterval;
+let startTime;
+
+function revealSituation(){
+
+let available = situations.filter(
+s=>!used.includes(s)
+);
+
+const random =
+available[Math.floor(Math.random()*available.length)];
+
+used.push(random);
+
+document.getElementById("situation").innerText=random;
+
+setTimeout(()=>{
+document.getElementById("situation").innerText="הסיטואציה הוסתרה. התחילו לפסל!";
+},5000);
+
+}
+
+function startTimer(){
+
+clearInterval(timerInterval);
+
+startTime = Date.now();
+
+timerInterval=setInterval(()=>{
+
+let elapsed=(Date.now()-startTime)/1000;
+
+document.getElementById("timer").innerText=
+elapsed.toFixed(2);
+
+},10);
+
+}
+
+function stopTimer(){
+
+clearInterval(timerInterval);
+
+const finalTime=parseFloat(
+document.getElementById("timer").innerText
+);
+
+if(currentTeam===1){
+
+team1Time=finalTime;
+
+alert("הזמן של קבוצה 1 נשמר");
+
+currentTeam=2;
+
+document.getElementById("teamTitle").innerText=
+"קבוצה 2";
+
+document.getElementById("situation").innerText=
+"לחצו על חשוף סיטואציה";
+
+document.getElementById("timer").innerText=
+"00.00";
+
+}else{
+
+team2Time=finalTime;
+
+showResults();
+
+}
+
+}
+
+function showResults(){
+
+document.getElementById("results").style.display="block";
+
+document.getElementById("team1Time").innerText=
+team1Time+" שניות";
+
+document.getElementById("team2Time").innerText=
+team2Time+" שניות";
+
+if(team1Time<team2Time){
+
+document.getElementById("team1Box")
+.classList.add("winner");
+
+document.getElementById("winnerText")
+.innerText="🏆 קבוצה 1 ניצחה!";
+
+}else if(team2Time<team1Time){
+
+document.getElementById("team2Box")
+.classList.add("winner");
+
+document.getElementById("winnerText")
+.innerText="🏆 קבוצה 2 ניצחה!";
+
+}else{
+
+document.getElementById("winnerText")
+.innerText="🤝 תיקו!";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
