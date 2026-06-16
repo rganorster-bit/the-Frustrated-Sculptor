@@ -1,1 +1,127 @@
+Build a mobile-friendly Funmigo mini game screen called:
 
+"הפסל המתוסכל"
+"The Frustrated Sculptor"
+
+Game goal:
+Each team plays one turn.
+One player is "the sculptor".
+The sculptor gets a secret situation and must silently shape the other team members into a living human statue that represents the situation.
+The sculptor is not allowed to speak.
+When one of the team members correctly guesses the situation, the team stops the timer.
+The team with the shortest time wins.
+
+Flow:
+
+1. Start screen:
+Show title:
+הפסל המתוסכל
+The Frustrated Sculptor
+
+Show short rules:
+נציג אחד הוא הפסל.
+הפסל מקבל סיטואציה סודית.
+עליו לעצב את חברי הקבוצה לפסל אנושי חי.
+אסור לדבר.
+כשאחד מחברי הקבוצה מזהה את הסיטואציה - עוצרים את הסטופר.
+הקבוצה המהירה ביותר מנצחת.
+
+Button:
+התחל משחק
+
+2. Team 1 situation screen:
+Choose a random situation from the situations array.
+Show:
+קבוצה 1
+הסיטואציה שלכם:
+[Random situation]
+
+Button:
+התחל סטופר
+
+3. Team 1 timer screen:
+Show a large timer starting from 00:00.
+Button:
+עצור סטופר
+
+When clicked, save the time as team1Time.
+
+4. Transition screen:
+Show:
+קבוצה 1 סיימה
+הזמן שלכם:
+[team1Time]
+
+Button:
+המשך לקבוצה 2
+
+5. Team 2 situation screen:
+Choose a different random situation from the array.
+Show:
+קבוצה 2
+הסיטואציה שלכם:
+[Random situation]
+
+Button:
+התחל סטופר
+
+6. Team 2 timer screen:
+Show a large timer starting from 00:00.
+Button:
+עצור סטופר
+
+When clicked, save the time as team2Time.
+
+7. Results screen:
+Show:
+תוצאות
+
+קבוצה 1: [team1Time]
+קבוצה 2: [team2Time]
+
+If team1Time is lower:
+המנצחת: קבוצה 1
+
+If team2Time is lower:
+המנצחת: קבוצה 2
+
+If times are equal:
+תיקו
+
+Situations array:
+[
+"חגיגת שער בדקה ה-90",
+"זכייה בגביע אליפות",
+"זינוק למרוץ 100 מטר",
+"פסק זמן בכדורסל",
+"טקס מדליית זהב אולימפית",
+"כולם בורחים מדבורה",
+"רכבת הרים מטורפת",
+"מלחמת כריות",
+"חיפוש עכביש בחדר",
+"צילום משפחתי שהשתבש",
+"פיראטים מחפשים אוצר",
+"גיבורי על לפני קרב",
+"משימה בחלל",
+"צוות שוד בנק",
+"חוקרים במקדש עתיק",
+"יום הולדת בהפתעה",
+"על האש משפחתי",
+"טיסה עם כיסי אוויר",
+"תור ארוך בסופר",
+"משפחה בלונה פארק"
+]
+
+Design:
+Use Funmigo playful comic style.
+Colors:
+Blue #2563EB
+Yellow #FACC15
+Black #000000
+White #FFFFFF
+
+Use big rounded buttons.
+Use large readable timer.
+Use RTL Hebrew layout.
+Add a Poppy mascot placeholder image area on the start screen, situation screen, and results screen.
+Make it fully mobile responsive.
